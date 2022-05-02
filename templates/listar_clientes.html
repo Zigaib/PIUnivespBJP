@@ -24,32 +24,46 @@
 
           <div class="content margin-5 padding-3" >
             <div class="table-responsive-xl custom-table-responsive">
-
+              
               <table class="table-responsive-sm table-striped table-dark table-bordered" >
+                
                 <thead>
+                  
                   <tr class="bg-black mb-lg-3">
                     <th scope="col">Name</th>
                     <th scope="col">Razão Social</th>
                     <th scope="col">CNPJ ou CPF</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Rua</th>
+                    <th scope="col">Numero</th>
+                    <th scope="col">Bairro</th>
                     <th scope="col">Cidade</th>
                     <th scope="col">Estado</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Editar</th>
                   </tr>
+                
                 </thead>
+              
                 <tbody>
                   {% for item in clientes %}
+                  
                   <td>{{ item.nome }}</td>
                   <td>{{ item.razao_social }}</td>
                   <td>{{ item.cnpj_cpf }}</td>
+                  <td>{{ item.cep }}</td>
+                  <td>{{ item.rua }}</td>
+                  <td>{{ item.numero }}</td>
+                  <td>{{ item.bairro }}</td>
                   <td>{{ item.cidade }}</td>
-                  <td>{{ item.UF }}</td>
+                  <td>{{ item.uf }}</td>
                   <td>{{ item.email }}</td>
                   <td>{{ item.telefone }}</td>
                   <td>
-
+                    
                     <a href="{{url_for('editar_clientes', id=item.id)}}">
+
                       <button type="button" class="btn btn-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                           class="bi bi-pencil" viewBox="0 0 16 16">

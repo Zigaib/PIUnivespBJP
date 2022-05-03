@@ -1,14 +1,22 @@
 /*!
+<<<<<<< HEAD
  * Start Bootstrap - Business Casual v7.0.5 (https://startbootstrap.com/theme/business-casual)
  * Copyright 2013-2021 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-business-casual/blob/master/LICENSE)
  */
+=======
+* Start Bootstrap - Business Casual v7.0.5 (https://startbootstrap.com/theme/business-casual)
+* Copyright 2013-2021 Start Bootstrap
+* Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-business-casual/blob/master/LICENSE)
+*/
+>>>>>>> 12e076efd21c6c10890e0566ea21362fccda2684
 // Highlights current date on contact page
 window.addEventListener('DOMContentLoaded', event => {
     const listHoursArray = document.body.querySelectorAll('.list-hours li');
     listHoursArray[new Date().getDay()].classList.add(('today'));
 })
 
+<<<<<<< HEAD
 $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
 });
@@ -145,3 +153,12 @@ function mudaTamanho(idAlvo, acao) {
     }
 }
 // Fim do código de Aumentar/ Diminuir a letra
+=======
+$(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+});
+
+$('#myCarousel').on('slide.bs.carousel', function () {
+    // do something…
+  })
+>>>>>>> 12e076efd21c6c10890e0566ea21362fccda2684

@@ -13,7 +13,11 @@
 {% endif %}
 {% endwith %}
 <section class="page-section cta">
+<<<<<<< HEAD
   <div class="btn-container">
+=======
+  <div class="container">
+>>>>>>> 12e076efd21c6c10890e0566ea21362fccda2684
     <div class="row">
       <div class="col-xl-auto mx-auto">
         <div class="cta-inner bg-faded text-center rounded">
@@ -24,25 +28,35 @@
 
           <div class="content margin-5 padding-3" >
             <div class="table-responsive-xl custom-table-responsive">
+<<<<<<< HEAD
               
               <table class="table-responsive-sm table-striped table-dark table-bordered" >
                 
                 <thead>
                   
+=======
+
+              <table class="table-responsive-sm table-striped table-dark table-bordered" >
+                <thead>
+>>>>>>> 12e076efd21c6c10890e0566ea21362fccda2684
                   <tr class="bg-black mb-lg-3">
                     <th scope="col">Name</th>
                     <th scope="col">Razão Social</th>
                     <th scope="col">CNPJ ou CPF</th>
+<<<<<<< HEAD
                     <th scope="col">CEP</th>
                     <th scope="col">Rua</th>
                     <th scope="col">Numero</th>
                     <th scope="col">Bairro</th>
+=======
+>>>>>>> 12e076efd21c6c10890e0566ea21362fccda2684
                     <th scope="col">Cidade</th>
                     <th scope="col">Estado</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Editar</th>
                   </tr>
+<<<<<<< HEAD
                 
                 </thead>
               
@@ -64,6 +78,21 @@
                     
                     <a href="{{url_for('editar_clientes', id=item.id)}}">
 
+=======
+                </thead>
+                <tbody>
+                  {% for item in clientes %}
+                  <td>{{ item.nome }}</td>
+                  <td>{{ item.razao_social }}</td>
+                  <td>{{ item.cnpj_cpf }}</td>
+                  <td>{{ item.cidade }}</td>
+                  <td>{{ item.UF }}</td>
+                  <td>{{ item.email }}</td>
+                  <td>{{ item.telefone }}</td>
+                  <td>
+
+                    <a href="{{url_for('editar_clientes', id=item.id)}}">
+>>>>>>> 12e076efd21c6c10890e0566ea21362fccda2684
                       <button type="button" class="btn btn-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                           class="bi bi-pencil" viewBox="0 0 16 16">

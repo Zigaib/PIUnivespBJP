@@ -79,7 +79,11 @@
 body {
   margin: 0;
   font-family: var(--bs-body-font-family);
+<<<<<<< HEAD
   font-size: 16px;
+=======
+  font-size: var(--bs-body-font-size);
+>>>>>>> 12e076efd21c6c10890e0566ea21362fccda2684
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);

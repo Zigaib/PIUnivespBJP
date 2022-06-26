@@ -1,3 +1,4 @@
+from tkinter import N
 from flask import render_template, request, url_for, flash
 from werkzeug.utils import redirect
 from models.cliente import Cadastrocliente
@@ -11,6 +12,12 @@ db.session.commit()
 @app.route("/")
 def index():
     return render_template("index.html")
+@app.route("/orcamentos",defaults={'id':0})
+@app.route("/orcamentos/<id>")
+def orcamentos(id):
+    resultado = Cadastrocliente.query.filter_by(id=id).all()
+    todos = Cadastrocliente.query.all()
+    return render_template("orcamentos.html", resultado=resultado, todos=todos)
 
 
 @app.route("/cadastro_clientes")
@@ -109,6 +116,7 @@ def atualizar():
             return render_template(
                 "listar_clientes.html", mensagem="Erro na atualização!"
             )
+
 
 
 if __name__ == "__main__":

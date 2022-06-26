@@ -1,0 +1,52 @@
+{% extends 'base.html' %} {% block conteudo %}
+
+<div class="row mb-4 p-3">
+    <div class="container">
+        <div class="jumbotron">
+
+            <h1 class="display-4 text-center text-">Orçamento</h1>
+            <p class="lead">
+                <div class="form-group">
+                    <select class="form-control"> 
+               <option data-url="..." selected>Nenhum...</option>
+                {% for cadastro in todos %}
+    <option class="form-control" data-url="/orcamentos/{{cadastro.id}}" placeholder="Nenhum" readonly >
+        
+      {{cadastro.nome}}
+    </option>
+   {% endfor %}
+   
+    </select>
+
+
+            </p>
+
+            </div>
+
+            <hr> {% if resultado %} {% for cadastro in resultado %}
+            <input class="form-control" type="text" placeholder="{{cadastro.nome}}">
+            <input class="form-control" type="text" placeholder="{{cadastro.cnpj_cpf}}">
+            <input class="form-control" type="text" placeholder="{{cadastro.telefone}}">
+            <input class="form-control" type="text" placeholder="{{cadastro.email}}"> {% endfor %} {% endif %}
+
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Descrição do Serviço</span>
+                </div>
+                <textarea class="form-control" aria-label="Com textarea"></textarea>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    var select = document.querySelector('select');
+    select.addEventListener('change', function() {
+        var selecionada = this.options[this.selectedIndex];
+        var url = selecionada.getAttribute('data-url');
+        if (url) window.location = url;
+    });
+</script>
+{% endblock conteudo %}

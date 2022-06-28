@@ -33,4 +33,3 @@ class Cadastrocliente(db.Model):
         self.email = email
         self.telefone = telefone
         
-

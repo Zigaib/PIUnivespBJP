@@ -1,6 +1,7 @@
-from tkinter import N
+from collections import UserDict
 from flask import render_template, request, url_for, flash
 from werkzeug.utils import redirect
+from models import cliente
 from models.cliente import Cadastrocliente
 from conection.conexao import *
 
@@ -12,6 +13,7 @@ db.session.commit()
 @app.route("/")
 def index():
     return render_template("index.html")
+
 @app.route("/orcamentos",defaults={'id':0})
 @app.route("/orcamentos/<id>")
 def orcamentos(id):
@@ -76,7 +78,6 @@ def cadastro():
                 "cadastro_clientes.html", mensagem="Erro no cadastro!"
             )
 
-
 @app.route("/atualizar", methods=["POST"])
 def atualizar():
     if request.method == "POST":
@@ -117,7 +118,13 @@ def atualizar():
                 "listar_clientes.html", mensagem="Erro na atualização!"
             )
 
-
+@app.route('/user/<id>')
+def excluir(id):
+        db.session.add(cliente)
+        db.session.commit()
+        user = UserDict.query.filter_by(id=id).first_or_404()
+        return redirect(url_for("listar_clientes"))
+    
 
 if __name__ == "__main__":
     app.run(debug=True)

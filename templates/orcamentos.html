@@ -2,39 +2,48 @@
 
 <div class="row mb-4 p-3">
     <div class="container">
-        <div class="jumbotron">
-
-            <h1 class="display-4 text-center text-">Orçamento</h1>
+        <div class="jumbotron bg-primary">
+            <h1 class="display-4 text-center text-white">Orçamento</h1>
             <p class="lead">
                 <div class="form-group">
                     <select class="form-control"> 
                <option data-url="..." selected>Nenhum...</option>
                 {% for cadastro in todos %}
     <option class="form-control" data-url="/orcamentos/{{cadastro.id}}" placeholder="Nenhum" readonly >
-        
-      {{cadastro.nome}}
+    {{cadastro.nome}}
     </option>
    {% endfor %}
-   
-    </select>
-
-
+       </select>
             </p>
-
             </div>
-
             <hr> {% if resultado %} {% for cadastro in resultado %}
-            <input class="form-control" type="text" placeholder="{{cadastro.nome}}">
-            <input class="form-control" type="text" placeholder="{{cadastro.cnpj_cpf}}">
-            <input class="form-control" type="text" placeholder="{{cadastro.telefone}}">
-            <input class="form-control" type="text" placeholder="{{cadastro.email}}"> {% endfor %} {% endif %}
-
+            <div class="card text-center">
+                <div class="card-body">
+                    <label for="">Nome<input class="form-control" type="text" placeholder="{{cadastro.nome}}" disabled></label>
+                    <Label>CNPJ ou CPF<input class="form-control" type="text" placeholder="{{cadastro.cnpj_cpf}}" disabled></Label>
+                    <Label>Telefone<input class="form-control" type="text" placeholder="{{cadastro.telefone}}" disabled></Label>
+                    <Label>E-mail<input class="form-control" type="text" placeholder="{{cadastro.email}}" disabled> {% endfor %} {% endif %}</Label>
+                </div>
+            </div>
             <div class="input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Descrição do Serviço</span>
                 </div>
                 <textarea class="form-control" aria-label="Com textarea"></textarea>
+
             </div>
+
+            <div class="input-group">
+                <span class="input-group-text">Valor Total do serviço</span>
+                <input type="text" class="form-control" aria-label="Quantia em Dollar (com ponto e duas casas decimais)">
+
+                <div class="input-group-append">
+
+                    <span class="input-group-text">R$</span>
+
+                </div>
+            </div>
+            <button type="button" class="btn btn-success btn-lg btn-block">Enviar</button>
         </div>
 
     </div>

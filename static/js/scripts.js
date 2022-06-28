@@ -17,7 +17,8 @@ $('#myCarousel').on('slide.bs.carousel', function() {
     // do something…
 })
 
-<
+
+
 script >
 
     function limpa_formulário_cep() {

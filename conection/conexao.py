@@ -10,3 +10,5 @@ app.config['SECRET_KEY'] = '@ALKSjsjhfdh%$fdbdh'
 db=sa(app)
 
 db.Model.metadata.reflect(db.engine)
+
+

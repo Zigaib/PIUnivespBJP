@@ -1,15 +1,20 @@
 {% extends 'base.html' %} {% block conteudo %}
-<div class="">
+<div class="container mb-3">
 </div>
 <div class="container card">
-    <div class="card text-center">
+    <div class="card mb-2 text-center">
         <div class="row mb-4 p-3">
             <div class="container">
-                <div class="jumbotron bg-primary">
-                    <h1 class="display-4 text-center text-white">Orçamento</h1>
+                <div class="jumbotron bg-secundary">
+                    <h1 class="display-4 text-center text-secundary">Orçamento</h1>
                     <p class="lead">
                         <div class="form-group">
+                            <hr class="mb-3">
+
+
+                            <label class="text-secundary" for="exampleFormControlSelect1"><h3>Selecione o Cliente para o Orçamento</h3> </label>
                             <select class="form-control"> 
+                                
                            <option data-url="..." selected>Nenhum...</option>
                             {% for cadastro in todos %}
                 <option class="form-control" data-url="/orcamentos/{{cadastro.id}}" placeholder="Nenhum" readonly >
@@ -23,36 +28,26 @@
                     <div class="card-body text-white ">
 
                         <label for="">Nome<input class="form-control" type="text" placeholder="{{cadastro.nome}}" disabled></label>
+                        <label>Razão Social<input class="form-control" type="text" placeholder="{{cadastro.razao_social}}" disabled></label>
                         <Label>CNPJ ou CPF<input class="form-control" type="text" placeholder="{{cadastro.cnpj_cpf}}" disabled></Label>
                         <Label>Telefone<input class="form-control" type="text" placeholder="{{cadastro.telefone}}" disabled></Label>
                         <Label>E-mail<input class="form-control" type="text" placeholder="{{cadastro.email}}" disabled> {% endfor %} {% endif %}</Label>
 
-
-                        <div class="col-md order-md-1">
-                            <h4 class="mb-3">Endereço de cobrança</h4>
-                            <form class="needs-validation" novalidate>
-
-                        </div>
-
                         <div class="mb-3">
-                            <label for="email">CNAE <span class="text-muted"></span></label>
-                            <input type="email" class="form-control" id="CNAE" placeholder="">
+                            <label for="cnae">CNAE <span class="text-muted"></span></label>
+                            <textarea type="cnaeo" class="form-control" id="cnaeo" placeholder=""></textarea>
                             <div class="invalid-feedback">
 
                             </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="Data">Data <span class="text-muted"></span></label>
-                            <input type="datetime-local" class="form-control" id="Data" placeholder="Data">
-                            <div class="invalid-feedback">
-
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Data de Orçamento</label>
+                                <textarea class="form-control" id="datao" rows="3"></textarea>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="endereco">Descritivo</label>
-                            <input type="textarea" class="form-control" id="Descritivo" placeholder="Descritivo" required>
+                            <input type="textarea" class="form-control" id="descritivo" placeholder="Descritivo" required>
                             <div class="invalid-feedback">
 
                             </div>
@@ -60,7 +55,7 @@
 
                         <div class="mb-3">
                             <label for="endereco2">Observação <span class="text-muted"></span></label>
-                            <input type="text" class="form-control" id="observacao" placeholder="Observação">
+                            <input type="text" class="form-control" id="observacaoo" placeholder="Observação">
                         </div>
 
 
@@ -74,19 +69,24 @@
                             <span class="input-group-text">R$</span>
                         </div>
                         <input type="text" class="form-control" aria-label="Quantia">
+
                         <div class="input-group-append">
                             <span class="input-group-text">,00</span>
                         </div>
 
                     </div>
-                    <div class="mb-3">
-                        <button type="button" class="btn btn-success btn-rounded">Enviar</button>
-                    </div>
+                    <form class="text-primary" action="/orcamento" method="">
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-success btn-lg btn-block">Gravar Orçamento</button>
+
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script>
     var select = document.querySelector('select');
     select.addEventListener('change', function() {

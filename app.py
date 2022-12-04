@@ -1,7 +1,5 @@
-from collections import UserDict
 from flask import render_template, request, url_for, flash
 from werkzeug.utils import redirect
-from models import cliente
 from models.cliente import Cadastrocliente
 from conection.conexao import *
 
@@ -26,8 +24,11 @@ def orcamentos(id):
 def cadastro_clientes():
     return render_template("cadastro_clientes.html")
 
+@app.route("/orcamento")
+def orcamento():
+    return render_template("orcamento.html")
 
-@app.route("/editar_clientes/<int:id>")
+@app.route("/editar_clientes/<int:id>", methods=["POST", "GET"])
 def editar_clientes(id):
     cliente = Cadastrocliente.query.filter(Cadastrocliente.id == id).first()
     return render_template("editar_clientes.html", cliente=cliente)
@@ -118,13 +119,13 @@ def atualizar():
                 "listar_clientes.html", mensagem="Erro na atualização!"
             )
 
-@app.route('/user/<id>')
-def excluir(id):
-        db.session.add(cliente)
+@app.route('/delete_cliente/<id>')
+def delete_cliente(id):
+        user = Cadastrocliente.query.filter(Cadastrocliente.id==id).one()
+        db.session.delete(user)
         db.session.commit()
-        user = UserDict.query.filter_by(id=id).first_or_404()
         return redirect(url_for("listar_clientes"))
     
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

@@ -8,10 +8,10 @@
 {% endif %} {% endwith %}
 <section class="page-section cta">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-xl-auto mx-auto">
+        <div class="row justify-content-md-center">
+            <div class="container-fluid">
                 <div class="cta-inner bg-faded text-center rounded">
-                    <h2 class="section-heading mb-5">
+                    <h2 class="section-heading mb-4">
                         <span class="section-heading-upper text-primary">Lista</span>
                         <span class="section-heading-lower text-white">Exibição de Clientes</span>
                     </h2>
@@ -19,6 +19,7 @@
                     <table class="table-responsive-xl table-hover table-bordered table-dark ">
                         <thead>
                             <tr>
+
                                 <th scope="col"> Name </th>
                                 <th scope="col"> Razão Social </th>
                                 <th scope="col"> CNPJ ou CPF </th>
@@ -32,6 +33,7 @@
                                 <th scope="col"> Telefone </th>
                                 <th scope="col"> Editar </th>
                                 <th scope="col"> Excluir </th>
+
                             </tr>
 
                         </thead>
@@ -39,7 +41,9 @@
                         <tbody>
                             {% for item in clientes %}
 
-                            <td>{{ item.nome }}</td>
+                            <td>
+                                {{ item.nome }}
+                            </td>
                             <td>{{ item.razao_social }}</td>
                             <td>{{ item.cnpj_cpf }}</td>
                             <td>{{ item.cep }}</td>
@@ -61,7 +65,7 @@
                                 </a>
                             </td>
                             <td>
-                                <a href=""><button type="button" class="btn btn-danger">                                        
+                                <a href="{{url_for('delete_cliente', id=item.id)}}"><button type="button" class="btn btn-danger">                                        
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-x-fill" viewBox="0 0 16 16">
                                             <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6.146-2.854a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z"/>
                                           </svg>
